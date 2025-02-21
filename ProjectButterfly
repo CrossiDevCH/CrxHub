@@ -61,11 +61,11 @@
   autoMoveFieldEnabled do character=player.Character or player.CharacterAdded:Wait() ;humanoidRootPart=character:WaitForChild("HumanoidRootPart");checkCapacity();if        
   capacityFull then print("Debug: Capacity full, converting nectar");convertNectar();print("Debug: Nectar converted");wait(1);else print("Debug: Moving back to field");    
   moving=true;moveToPosition(selectedFieldPosition);moving=false;wait(5);end wait(0.1);end end);else warn("No field selected");end end end});local Section=Tab:             
-  CreateSection("Hive");Tab:CreateToggle({Name="Auto Use Tool",CurrentValue=false,Flag="Toggle1",Callback=function(Value) handleAutoUseToolToggle(Value);end});Tab:         
+  CreateSection("Player");Tab:CreateToggle({Name="Auto Use Tool",CurrentValue=false,Flag="Toggle1",Callback=function(Value) handleAutoUseToolToggle(Value);end});Tab:       
   CreateToggle({Name="Auto Collect Tokens",CurrentValue=false,Flag="TokenToggle",Callback=function(Value) autoCollectEnabled=Value;if (autoCollectEnabled and  not          
   converting) then task.spawn(function() while autoCollectEnabled do collectTokens();wait();end end);end end});Tab:CreateToggle({Name="Auto Attack Mobs",CurrentValue=false 
   ,Flag="AutoAttackToggle",Callback=function(Value) autoAttackEnabled=Value;if autoAttackEnabled then task.spawn(autoAttackMobs);end end});local MiscTab=Window:CreateTab(  
-  "Misc","Settings");local Paragraph=MiscTab:CreateParagraph({Title="Credits",Content="Made by CrxD"});MiscTab:CreateButton({Name="Redeem All Codes",Callback=function()    
+  "Misc","Settings");local Paragraph=MiscTab:CreateParagraph({Title="Credits",Content="Made by CrxDev"});MiscTab:CreateButton({Name="Redeem All Codes",Callback=function()  
   redeemCodes();end});MiscTab:CreateToggle({Name="Anti AFK",Callback=function(Value) while Value do local vu=game:GetService("VirtualUser");game:GetService("Players").     
   LocalPlayer.Idled:Connect(function() vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame);task.wait(0.1);vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera 
   .CFrame);end);print("Ignore this i just put the message to check if the Anti AFK Runs");wait(300);end end});
